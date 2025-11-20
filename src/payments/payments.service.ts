@@ -189,14 +189,6 @@ export class PaymentService {
     
     // Маппим статус провайдера к нашему внутреннему статусу
     const mappedStatus = provider.mapStatus(params.status);
-    
-    // Если статус неизвестен, логируем и выбрасываем ошибку
-    if (mappedStatus === PaymentStatus.UNKNOWN) {
-      throw new ValidationError(
-        `Провайдер ${params.providerId} вернул неизвестный статус "${params.status}"`,
-        { originalStatus: params.status, providerId: params.providerId }
-      );
-    }
 
     // Обновляем provider transaction ID если нужно
     if (params.providerTransactionId && !payment.providerTransactionId) {

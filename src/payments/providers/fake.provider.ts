@@ -156,10 +156,6 @@ export class FakeProvider implements PaymentProvider {
 			completed: PaymentStatus.COMPLETED,
 			failed: PaymentStatus.FAILED,
 			cancelled: PaymentStatus.CANCELLED,
-			// Поддержка алиасов
-			success: PaymentStatus.COMPLETED,
-			error: PaymentStatus.FAILED,
-			rejected: PaymentStatus.FAILED,
 		};
 
 		const status = statusMap[providerStatus.toLowerCase()];
